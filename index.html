@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pudim da Minha Mãe — Catálogo</title>
   <meta name="description" content="Catálogo interativo de pudins artesanais — lisinhos, cremosos e feitos com carinho.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,8 +46,7 @@
     <section class="grid" id="catalogo">
       <!-- PRODUTO 1 -->
       <article class="card product-card">
-        <img src="https://images.unsplash.com/photo-1517953469826-f1e8b39feb16?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Pudim Tradicional Pequeno (120ml)" />
-        <div class="card-thumbs"></div>
+        <img src="src/pequeno1.png" alt="Pudim Tradicional Pequeno (120ml)" />
         <div class="pad">
           <div class="row spread center">
             <h3 class="nomargin product-title">Pudim Tradicional Pequeno (120ml)</h3>
@@ -54,7 +59,7 @@
               data-id="pequeno120"
               data-title="Pudim Tradicional Pequeno (120ml)"
               data-price="8.00"
-              data-img="https://images.unsplash.com/photo-1517953469826-f1e8b39feb16?q=80&amp;w=1200&amp;auto=format&amp;fit=crop"
+              data-img="src/pequeno1.png"
               data-images='["src/pequeno2.JPG","src/pequeno3.JPG"]'
               data-variants='[{"nome":"Tradicional","extra":0}]'
             >Ver detalhes</button>
@@ -64,12 +69,12 @@
 
       <!-- PRODUTO 2 -->
       <article class="card product-card">
-        <img src="https://images.unsplash.com/photo-1614707267537-5e0c89378273?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Pudim Tradicional Médio (500ml)" />
-        <div class="card-thumbs"></div>
+        <img src="src/medio1.png" alt="Pudim Tradicional Médio (500ml)" />
         <div class="pad">
           <div class="row spread center">
             <h3 class="nomargin product-title">Pudim Tradicional Médio (500ml)</h3>
             <span class="pill">Serve 4–6</span>
+            <span class="pill special">Opção sem lactose</span>
           </div>
           <p class="muted">Ideal para dividir à mesa.</p>
           <div class="row spread center">
@@ -78,9 +83,9 @@
               data-id="medio500"
               data-title="Pudim Tradicional Médio (500ml)"
               data-price="40.00"
-              data-img="https://images.unsplash.com/photo-1614707267537-5e0c89378273?q=80&amp;w=1200&amp;auto=format&amp;fit=crop"
-              data-images='["src/medio2.JPG","src/medio3.HEIC"]'
-              data-variants='[{"nome":"Tradicional","extra":0}]'
+              data-img="src/medio1.png"
+              data-images='["src/medio2.JPG","src/medio3.jpg"]'
+              data-variants='[{"nome":"Tradicional","extra":0},{"nome":"Zero lactose","extra":10}]'
             >Ver detalhes</button>
           </div>
         </div>
@@ -88,12 +93,12 @@
 
       <!-- PRODUTO 3 -->
       <article class="card product-card">
-        <img src="https://images.unsplash.com/photo-1599785209796-9e78c8d1f6ff?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Pudim Tradicional Grande (1,1L)" />
-        <div class="card-thumbs"></div>
+        <img src="src/grande1.png" alt="Pudim Tradicional Grande (1,1l)" />
         <div class="pad">
           <div class="row spread center">
-            <h3 class="nomargin product-title">Pudim Tradicional Grande (1,1L)</h3>
+            <h3 class="nomargin product-title">Pudim Tradicional Grande (1,1l)</h3>
             <span class="pill">Serve 6–8</span>
+            <span class="pill special">Opção sem lactose</span>
           </div>
           <p class="muted">Nosso clássico em tamanho família.</p>
           <div class="row spread center">
@@ -102,10 +107,34 @@
               data-id="grande11"
               data-title="Pudim Tradicional Grande (1,1L)"
               data-price="60.00"
-              data-img="https://images.unsplash.com/photo-1599785209796-9e78c8d1f6ff?q=80&amp;w=1200&amp;auto=format&amp;fit=crop"
-              data-images="['src/grande2.JPG'"
-              data-variants='[{"nome":"Tradicional","extra":0}]'
+              data-img="src/grande1.png"
+              data-images='["src/grande2.JPG"]'
+              data-variants='[{"nome":"Tradicional","extra":0},{"nome":"Zero lactose","extra":10}]'
             >Ver detalhes</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRODUTO 4 - EVENTOS SOB ENCOMENDA -->
+      <article class="card product-card">
+        <img src="src/eventos.jpg" alt="Pudins para eventos sob encomenda" />
+        <div class="pad">
+          <div class="row spread center">
+            <h3 class="nomargin product-title">Pudins para Eventos — Sob Encomenda</h3>
+            <span class="pill">Personalizamos</span>
+          </div>
+          <p class="muted">Para festas, casamentos e corporativos: quantidades grandes, tamanhos variados e potinhos individuais. Etiquetas e embalagem sob medida.</p>
+          <div class="row spread center">
+            <span class="price">Sob consulta</span>
+            <button class="btn" data-open-modal
+              data-type="orcamento"
+              data-id="eventos"
+              data-title="Orçamento — Pudins para Eventos"
+              data-price="0"
+              data-img="src/eventos.jpg"
+              data-images='[]'
+              data-variants='[]'
+            >Solicitar orçamento</button>
           </div>
         </div>
       </article>
@@ -142,7 +171,9 @@
           <input id="mQty" type="number" min="1" step="1" value="1" />
         </div>
 
-        <p>Total: <strong id="mTotal">R$ 0,00</strong></p>
+        <!-- Campos de evento adicionados via JS -->
+
+        <p id="mTotalWrap">Total: <strong id="mTotal">R$ 0,00</strong></p>
 
         <div class="row">
           <button class="btn" id="mBtnWhats">Finalizar no WhatsApp</button>
@@ -155,41 +186,26 @@
   </dialog>
 
   <script>
-    // >>>> CONFIGURAÇÕES <<<<
-    const WHATS_NUMBER = '5551997395475'; // Substitua com seu número (DDI 55 + DDD + número) sem sinais
+    const WHATS_NUMBER = '5551997395475';
     const INSTA = 'https://instagram.com/pudim.daminhamae';
-
-    // Helper: BRL
     const fmtBRL = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-
-    // Header actions
-    document.getElementById('btn-whats-top').href = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent('Olá! Quero fazer uma encomenda 🙂')}`;
-    const insta = document.getElementById('insta');
-    insta.href = INSTA;
-
-    // Ano
+    document.getElementById('btn-whats-top').href = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent('Olá! Quero fazer uma encomenda :)')}`;
+    document.getElementById('insta').href = INSTA;
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Modal logic
     const dlg = document.getElementById('produtoModal');
     const mImg = document.getElementById('mImg');
     const mTitle = document.getElementById('mTitle');
     const mVar = document.getElementById('mVar');
     const mQty = document.getElementById('mQty');
     const mTotal = document.getElementById('mTotal');
+    const mTotalWrap = document.getElementById('mTotalWrap');
     const mBtnWhats = document.getElementById('mBtnWhats');
     const mThumbs = document.getElementById('mThumbs');
     const prevImgBtn = document.getElementById('prevImg');
     const nextImgBtn = document.getElementById('nextImg');
     let modalImgs = [];
     let currentImgIndex = 0;
-
-    const resolveImg = (src) => {
-      if (!src) return '';
-      if (/^https?:/i.test(src)) return src;
-      if (/\.(jpe?g|png|webp|gif|heic)$/i.test(src)) return src;
-      return `${src}.jpg`;
-    };
 
     function calcTotal(base, extra){
       const qty = Math.max(1, parseInt(mQty.value||'1',10));
@@ -202,12 +218,12 @@
       const price = parseFloat(btn.dataset.price);
       const variants = JSON.parse(btn.dataset.variants || '[]');
       const extras = JSON.parse(btn.dataset.images || '[]');
+      const isOrcamento = btn.dataset.type === 'orcamento';
 
       mTitle.textContent = title;
       mImg.src = img;
 
-      // montar galeria de thumbnails
-      const imgs = [img, ...extras].map(resolveImg).filter((v,i,a)=>v && a.indexOf(v)===i);
+      const imgs = [img, ...extras];
       modalImgs = imgs;
       currentImgIndex = 0;
       mThumbs.innerHTML = '';
@@ -215,7 +231,6 @@
         imgs.forEach((src, idx)=>{
           const t = document.createElement('img');
           t.src = src;
-          t.alt = 'variação';
           if(idx===0) t.classList.add('active');
           t.addEventListener('click', ()=>{
             mImg.src = src;
@@ -230,36 +245,64 @@
         mThumbs.style.display = 'none';
       }
 
-      // montar selects
+      document.querySelectorAll('.event-date, .event-notes').forEach(el=>el.remove());
+
       mVar.innerHTML = '';
-      variants.forEach((v,i)=>{
+      let varsToUse = variants;
+
+      if(isOrcamento){
+        varsToUse = [
+          {nome:"Pequeno 120ml",extra:0},
+          {nome:"Médio 500ml",extra:0},
+          {nome:"Médio 500ml Zero Lactose",extra:0},
+          {nome:"Grande 1,1L",extra:0},
+          {nome:"Grande 1,1L Zero Lactose",extra:0}
+        ];
+        mTotalWrap.style.display = 'none';
+
+        const dateWrap = document.createElement('div');
+        dateWrap.className = 'event-date';
+        dateWrap.innerHTML = `<label>Data do evento</label><input id="mDate" type="date" />`;
+        mQty.parentNode.insertAdjacentElement('afterend', dateWrap);
+
+        const obsWrap = document.createElement('div');
+        obsWrap.className = 'event-notes';
+        obsWrap.innerHTML = `<label>Observações</label><textarea id="mObs" rows="3" placeholder="Escreva observações importantes aqui"></textarea>`;
+        dateWrap.insertAdjacentElement('afterend', obsWrap);
+      } else {
+        mTotalWrap.style.display = 'block';
+      }
+
+      varsToUse.forEach((v,i)=>{
         const opt = document.createElement('option');
         opt.value = i;
         opt.textContent = v.nome;
         opt.dataset.extra = v.extra;
         mVar.appendChild(opt);
       });
-      if (!variants.length){
-        const opt = document.createElement('option');
-        opt.value = 0; opt.textContent = 'Padrão'; opt.dataset.extra = 0; mVar.appendChild(opt);
-      }
-      mQty.value = 1;
 
+      mQty.value = 1;
       const update = () => {
         const extra = parseFloat(mVar.selectedOptions[0].dataset.extra||'0');
         mTotal.textContent = fmtBRL(calcTotal(price, extra));
       };
       mVar.onchange = update; mQty.oninput = update; update();
 
-      // WhatsApp
       mBtnWhats.onclick = () => {
-        const qty = Math.max(1, parseInt(mQty.value||'1',10));
-        const extra = parseFloat(mVar.selectedOptions[0].dataset.extra||'0');
-        const varName = mVar.selectedOptions[0].textContent;
-        const total = fmtBRL(calcTotal(price, extra));
-        const msg = `Olá! Quero encomendar: %0A• ${title} — ${varName} %0A• Quantidade: ${qty} %0A• Total estimado: ${total} %0A%0AComo podemos combinar a entrega/retirada?`;
-        const url = `https://wa.me/${WHATS_NUMBER}?text=${msg}`;
-        window.open(url,'_blank');
+        let msg;
+        if(isOrcamento){
+          const date = document.getElementById('mDate').value;
+          const obs = document.getElementById('mObs').value.trim();
+          const varName = mVar.selectedOptions[0].textContent;
+          msg = `Olá! Quero um orçamento para eventos.%0A• Tipo: ${varName}%0A• Quantidade: ${mQty.value}%0A• Data do evento: ${date || 'não informada'}%0A• Observações: ${obs || 'nenhuma'}%0A%0APodemos conversar sobre tamanhos, prazos e entrega?`;
+        } else {
+          const qty = Math.max(1, parseInt(mQty.value||'1',10));
+          const extra = parseFloat(mVar.selectedOptions[0].dataset.extra||'0');
+          const varName = mVar.selectedOptions[0].textContent;
+          const total = fmtBRL(calcTotal(price, extra));
+          msg = `Olá! Quero encomendar:%0A• ${title} — ${varName}%0A• Quantidade: ${qty}%0A• Total estimado: ${total}%0A%0AComo podemos combinar a entrega/retirada?`;
+        }
+        window.open(`https://wa.me/${WHATS_NUMBER}?text=${msg}`,'_blank');
       };
 
       prevImgBtn.onclick = () => {
@@ -279,36 +322,11 @@
 
       dlg.showModal();
     }
+
     function closeModal(){ dlg.close(); }
     window.closeModal = closeModal;
-
-    // Bind openers
     document.querySelectorAll('[data-open-modal]').forEach(btn=>{
       btn.addEventListener('click', ()=>openModal(btn));
-    });
-
-    // Monta thumbs nos cards do catálogo
-    document.querySelectorAll('article.card.product-card').forEach(card=>{
-      const mainImg = card.querySelector(':scope > img');
-      const btn = card.querySelector('[data-open-modal]');
-      if (!btn) return;
-      const extras = JSON.parse(btn.dataset.images || '[]').map(resolveImg).filter(Boolean);
-      if (extras.length){
-        const holder = card.querySelector('.card-thumbs');
-        if (holder){
-          holder.innerHTML = '';
-          extras.slice(0,3).forEach(src=>{
-            const t = document.createElement('img');
-            t.src = src;
-            t.alt = 'Prévia';
-            t.addEventListener('click', ()=>{
-              if(mainImg) mainImg.src = src;
-            });
-            holder.appendChild(t);
-          });
-        }
-      }
-      if (mainImg){ mainImg.loading = 'lazy'; }
     });
   </script>
 </body>

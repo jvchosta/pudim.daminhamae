@@ -1,6 +1,9 @@
 /* style.css — Pudim da Minha Mãe (ajuste visual + sombras + cantos retos) */
 
 /* ======== FONTES ======== */
+@import url('https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
 @font-face{
   font-family: "Lacosta";
   src:
@@ -37,12 +40,13 @@ body{
   color:var(--ink);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  font-family:"Latienne Becker", Georgia, "Times New Roman", serif;
+  font-family: "Zain", sans-serif;
+  font-size: 17px;
   line-height:1.35;
 }
 h1,h2,h3{ margin:0; line-height:1.1; color:var(--ink); }
-.display{ font-family:"Lacosta","Latienne Becker", Georgia, serif; letter-spacing:.2px; }
-.headline{ font-family:"Latienne Becker", Georgia, serif; font-weight:800; }
+.display{ font-family:"Rouge Script", cursive; font-weight:700; font-size: clamp(40px, 5vw, 56px); letter-spacing:.2px; }
+.headline{ font-family:"Rouge Script", cursive; font-weight:700; font-size: clamp(28px, 3.6vw, 34px); }
 .body{ font-family:"Latienne Becker", Georgia, serif; }
 .muted{ color:var(--muted); }
 
@@ -78,11 +82,26 @@ header{
   border:none;          /* remove qualquer borda */
   border-radius:0;      /* remove o formato de círculo */
 }
-.brand h1{ font-size:22px; font-family:"Latienne Becker", Georgia, serif; }
-.brand small{ display:block; color:var(--muted); }
+.brand h1{ font-size:22px; font-family:"Rouge Script", cursive; font-weight:400; }
+.brand small{ display:block; color:var(--muted); font-family: "Zain", sans-serif; font-size: 18px; }
 
 /* ======== HERO ======== */
 .hero{ padding:28px 0; }
+
+/* ======== HERO HEADING "Catálogo" ======== */
+.hero .display,
+.hero h1 {
+  color: #ffffff;
+}
+
+/* ======== HERO SUBHEADING/PARAGRAPH ======== */
+.hero .subheading,
+.hero p.subheading,
+.hero .card p,
+.hero p {
+  color: #ffffff;
+  font-size: 1.1em;
+}
 .card{
   background:var(--white);
   border:none;
@@ -126,15 +145,15 @@ header{
 .product-card p { color:var(--panel-ink); }
 
 .product-title{
-  font-family:"Latienne Becker", Georgia, serif;
-  font-weight:900;
-  font-size:28px;
+  font-family:"Rouge Script", cursive;
+  font-weight:700;
+  font-size: clamp(28px, 3.6vw, 34px);
   line-height:1.1;
 }
 
 .price{
-  font-family:"Latienne Becker", Georgia, serif;
-  font-size:22px;
+  font-family:"Zain", sans-serif;
+  font-size:28px;
   font-weight:900;
 }
 
@@ -152,6 +171,8 @@ header{
   color:#3a2318;
   text-decoration:none; border:none; cursor:pointer;
   padding:12px 16px; border-radius:10px; font-weight:800;
+  font-family: "Zain", sans-serif;
+  font-size: 17px;
   transition:transform .04s ease, filter .15s ease;
 }
 .btn:hover{ filter:brightness(.96); }
