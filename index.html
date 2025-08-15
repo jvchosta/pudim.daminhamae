@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pudim da Minha Mãe — Catálogo</title>
+  <meta name="description" content="Catálogo interativo de pudins artesanais — lisinhos, cremosos e feitos com carinho.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="wrap brand" style="justify-content:space-between; width:100%;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="src/logo.png" alt="Pudim logo" />
+        <div>
+          <small>Lisinho, cremoso e feito com amor — Canoas/RS</small>
+        </div>
+      </div>
+      <nav style="display:flex; align-items:center; gap:12px;">
+        <a href="#" class="btn secondary">Página 1</a>
+        <a href="#" class="btn secondary">Página 2</a>
+        <a href="#" class="btn secondary">Página 3</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <div class="row spread center">
+          <div>
+            <h2 class="nomargin display">Catálogo</h2>
+            <p class="muted nomargin">Clique no produto para ver detalhes e finalizar pelo WhatsApp.</p>
+          </div>
+          <a class="btn" id="btn-whats-top" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="catalogo">
+      <!-- PRODUTO 1 -->
+      <article class="card product-card">
+        <img src="https://images.unsplash.com/photo-1517953469826-f1e8b39feb16?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Pudim Tradicional Pequeno (120ml)" />
+        <div class="card-thumbs"></div>
+        <div class="pad">
+          <div class="row spread center">
+            <h3 class="nomargin product-title">Pudim Tradicional Pequeno (120ml)</h3>
+            <span class="pill">Serve 1</span>
+          </div>
+          <p class="muted">Porção individual, lisinha e cremosa.</p>
+          <div class="row spread center">
+            <span class="price">R$ 8,00</span>
+            <button class="btn" data-open-modal
+              data-id="pequeno120"
+              data-title="Pudim Tradicional Pequeno (120ml)"
+              data-price="8.00"
+              data-img="https://images.unsplash.com/photo-1517953469826-f1e8b39feb16?q=80&amp;w=1200&amp;auto=format&amp;fit=crop"
+              data-images='["src/pequeno2.JPG","src/pequeno3.JPG"]'
+              data-variants='[{"nome":"Tradicional","extra":0}]'
+            >Ver detalhes</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRODUTO 2 -->
+      <article class="card product-card">
+        <img src="https://images.unsplash.com/photo-1614707267537-5e0c89378273?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Pudim Tradicional Médio (500ml)" />
+        <div class="card-thumbs"></div>
+        <div class="pad">
+          <div class="row spread center">
+            <h3 class="nomargin product-title">Pudim Tradicional Médio (500ml)</h3>
+            <span class="pill">Serve 4–6</span>
+          </div>
+          <p class="muted">Ideal para dividir à mesa.</p>
+          <div class="row spread center">
+            <span class="price">R$ 40,00</span>
+            <button class="btn" data-open-modal
+              data-id="medio500"
+              data-title="Pudim Tradicional Médio (500ml)"
+              data-price="40.00"
+              data-img="https://images.unsplash.com/photo-1614707267537-5e0c89378273?q=80&amp;w=1200&amp;auto=format&amp;fit=crop"
+              data-images='["src/medio2.JPG","src/medio3.HEIC"]'
+              data-variants='[{"nome":"Tradicional","extra":0}]'
+            >Ver detalhes</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRODUTO 3 -->
+      <article class="card product-card">
+        <img src="https://images.unsplash.com/photo-1599785209796-9e78c8d1f6ff?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Pudim Tradicional Grande (1,1L)" />
+        <div class="card-thumbs"></div>
+        <div class="pad">
+          <div class="row spread center">
+            <h3 class="nomargin product-title">Pudim Tradicional Grande (1,1L)</h3>
+            <span class="pill">Serve 6–8</span>
+          </div>
+          <p class="muted">Nosso clássico em tamanho família.</p>
+          <div class="row spread center">
+            <span class="price">R$ 60,00</span>
+            <button class="btn" data-open-modal
+              data-id="grande11"
+              data-title="Pudim Tradicional Grande (1,1L)"
+              data-price="60.00"
+              data-img="https://images.unsplash.com/photo-1599785209796-9e78c8d1f6ff?q=80&amp;w=1200&amp;auto=format&amp;fit=crop"
+              data-images="['src/grande2.JPG'"
+              data-variants='[{"nome":"Tradicional","extra":0}]'
+            >Ver detalhes</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="footer">
+      <p><strong>Conservação:</strong> Geladeira até 7–10 dias. Pode congelar por até 3 meses. Após descongelar, consumir em até 3 dias e não recongelar.</p>
+      <p><strong>Entrega:</strong> Retirada ou envio via aplicativo (consultar taxa e disponibilidade).</p>
+      <p>© <span id="year"></span> Pudim da Minha Mãe • Canoas/RS • <a href="#" id="insta" class="badge">@pudim.daminhamae</a></p>
+    </section>
+  </main>
+
+  <!-- MODAL PRODUTO -->
+  <dialog id="produtoModal">
+    <div class="modal">
+      <div class="media">
+        <button class="nav-arrow prev" id="prevImg">&#10094;</button>
+        <button class="nav-arrow next" id="nextImg">&#10095;</button>
+        <img id="mImg" src="" alt="Produto" />
+        <div id="mThumbs" class="thumbs"></div>
+      </div>
+      <div class="info">
+        <button class="btn secondary close float-right" onclick="closeModal()">Fechar</button>
+        <h3 id="mTitle">Produto</h3>
+        <p class="muted">Escolha as opções e finalize pelo WhatsApp.</p>
+
+        <div class="options">
+          <label for="mVar">Variação</label>
+          <select id="mVar"></select>
+        </div>
+
+        <div class="qty">
+          <label for="mQty">Quantidade</label>
+          <input id="mQty" type="number" min="1" step="1" value="1" />
+        </div>
+
+        <p>Total: <strong id="mTotal">R$ 0,00</strong></p>
+
+        <div class="row">
+          <button class="btn" id="mBtnWhats">Finalizar no WhatsApp</button>
+          <button class="btn secondary" onclick="closeModal()">Continuar vendo</button>
+        </div>
+
+        <p class="muted note">Ao clicar, vamos abrir seu WhatsApp com uma mensagem pronta. Você poderá revisar antes de enviar.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // >>>> CONFIGURAÇÕES <<<<
+    const WHATS_NUMBER = '5551997395475'; // Substitua com seu número (DDI 55 + DDD + número) sem sinais
+    const INSTA = 'https://instagram.com/pudim.daminhamae';
+
+    // Helper: BRL
+    const fmtBRL = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+
+    // Header actions
+    document.getElementById('btn-whats-top').href = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent('Olá! Quero fazer uma encomenda 🙂')}`;
+    const insta = document.getElementById('insta');
+    insta.href = INSTA;
+
+    // Ano
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Modal logic
+    const dlg = document.getElementById('produtoModal');
+    const mImg = document.getElementById('mImg');
+    const mTitle = document.getElementById('mTitle');
+    const mVar = document.getElementById('mVar');
+    const mQty = document.getElementById('mQty');
+    const mTotal = document.getElementById('mTotal');
+    const mBtnWhats = document.getElementById('mBtnWhats');
+    const mThumbs = document.getElementById('mThumbs');
+    const prevImgBtn = document.getElementById('prevImg');
+    const nextImgBtn = document.getElementById('nextImg');
+    let modalImgs = [];
+    let currentImgIndex = 0;
+
+    const resolveImg = (src) => {
+      if (!src) return '';
+      if (/^https?:/i.test(src)) return src;
+      if (/\.(jpe?g|png|webp|gif|heic)$/i.test(src)) return src;
+      return `${src}.jpg`;
+    };
+
+    function calcTotal(base, extra){
+      const qty = Math.max(1, parseInt(mQty.value||'1',10));
+      return (base + extra) * qty;
+    }
+
+    function openModal(btn){
+      const title = btn.dataset.title;
+      const img = btn.dataset.img;
+      const price = parseFloat(btn.dataset.price);
+      const variants = JSON.parse(btn.dataset.variants || '[]');
+      const extras = JSON.parse(btn.dataset.images || '[]');
+
+      mTitle.textContent = title;
+      mImg.src = img;
+
+      // montar galeria de thumbnails
+      const imgs = [img, ...extras].map(resolveImg).filter((v,i,a)=>v && a.indexOf(v)===i);
+      modalImgs = imgs;
+      currentImgIndex = 0;
+      mThumbs.innerHTML = '';
+      if(imgs.length > 1){
+        imgs.forEach((src, idx)=>{
+          const t = document.createElement('img');
+          t.src = src;
+          t.alt = 'variação';
+          if(idx===0) t.classList.add('active');
+          t.addEventListener('click', ()=>{
+            mImg.src = src;
+            currentImgIndex = idx;
+            mThumbs.querySelectorAll('img').forEach(el=>el.classList.remove('active'));
+            t.classList.add('active');
+          });
+          mThumbs.appendChild(t);
+        });
+        mThumbs.style.display = 'flex';
+      }else{
+        mThumbs.style.display = 'none';
+      }
+
+      // montar selects
+      mVar.innerHTML = '';
+      variants.forEach((v,i)=>{
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = v.nome;
+        opt.dataset.extra = v.extra;
+        mVar.appendChild(opt);
+      });
+      if (!variants.length){
+        const opt = document.createElement('option');
+        opt.value = 0; opt.textContent = 'Padrão'; opt.dataset.extra = 0; mVar.appendChild(opt);
+      }
+      mQty.value = 1;
+
+      const update = () => {
+        const extra = parseFloat(mVar.selectedOptions[0].dataset.extra||'0');
+        mTotal.textContent = fmtBRL(calcTotal(price, extra));
+      };
+      mVar.onchange = update; mQty.oninput = update; update();
+
+      // WhatsApp
+      mBtnWhats.onclick = () => {
+        const qty = Math.max(1, parseInt(mQty.value||'1',10));
+        const extra = parseFloat(mVar.selectedOptions[0].dataset.extra||'0');
+        const varName = mVar.selectedOptions[0].textContent;
+        const total = fmtBRL(calcTotal(price, extra));
+        const msg = `Olá! Quero encomendar: %0A• ${title} — ${varName} %0A• Quantidade: ${qty} %0A• Total estimado: ${total} %0A%0AComo podemos combinar a entrega/retirada?`;
+        const url = `https://wa.me/${WHATS_NUMBER}?text=${msg}`;
+        window.open(url,'_blank');
+      };
+
+      prevImgBtn.onclick = () => {
+        if(!modalImgs.length) return;
+        currentImgIndex = (currentImgIndex - 1 + modalImgs.length) % modalImgs.length;
+        mImg.src = modalImgs[currentImgIndex];
+        mThumbs.querySelectorAll('img').forEach(el=>el.classList.remove('active'));
+        mThumbs.querySelectorAll('img')[currentImgIndex].classList.add('active');
+      };
+      nextImgBtn.onclick = () => {
+        if(!modalImgs.length) return;
+        currentImgIndex = (currentImgIndex + 1) % modalImgs.length;
+        mImg.src = modalImgs[currentImgIndex];
+        mThumbs.querySelectorAll('img').forEach(el=>el.classList.remove('active'));
+        mThumbs.querySelectorAll('img')[currentImgIndex].classList.add('active');
+      };
+
+      dlg.showModal();
+    }
+    function closeModal(){ dlg.close(); }
+    window.closeModal = closeModal;
+
+    // Bind openers
+    document.querySelectorAll('[data-open-modal]').forEach(btn=>{
+      btn.addEventListener('click', ()=>openModal(btn));
+    });
+
+    // Monta thumbs nos cards do catálogo
+    document.querySelectorAll('article.card.product-card').forEach(card=>{
+      const mainImg = card.querySelector(':scope > img');
+      const btn = card.querySelector('[data-open-modal]');
+      if (!btn) return;
+      const extras = JSON.parse(btn.dataset.images || '[]').map(resolveImg).filter(Boolean);
+      if (extras.length){
+        const holder = card.querySelector('.card-thumbs');
+        if (holder){
+          holder.innerHTML = '';
+          extras.slice(0,3).forEach(src=>{
+            const t = document.createElement('img');
+            t.src = src;
+            t.alt = 'Prévia';
+            t.addEventListener('click', ()=>{
+              if(mainImg) mainImg.src = src;
+            });
+            holder.appendChild(t);
+          });
+        }
+      }
+      if (mainImg){ mainImg.loading = 'lazy'; }
+    });
+  </script>
+</body>
+</html>

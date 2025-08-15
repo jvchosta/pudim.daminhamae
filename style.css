@@ -1,0 +1,254 @@
+/* style.css — Pudim da Minha Mãe (ajuste visual + sombras + cantos retos) */
+
+/* ======== FONTES ======== */
+@font-face{
+  font-family: "Lacosta";
+  src:
+    url("./fonts/Lacosta.woff2") format("woff2"),
+    url("./fonts/Lacosta.otf") format("opentype");
+  font-display: swap;
+}
+@font-face{
+  font-family: "Latienne Becker";
+  src:
+    url("./fonts/LatienneBecker.woff2") format("woff2"),
+    url("./fonts/LatienneBecker.otf") format("opentype");
+  font-display: swap;
+}
+
+/* ======== CORES ======== */
+:root{
+  --bg: #F6E9D8;          
+  --panel: #A86347;       
+  --panel-ink: #FFF5EA;   
+  --panel-shadow: #5a2f22;
+  --ink: #3E1A34;         
+  --muted: #6f5764;       
+  --accent: #D8B184;      
+  --badge: #E3C2A3;       
+  --white: #ffffff;
+}
+
+/* ======== BASE ======== */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-family:"Latienne Becker", Georgia, "Times New Roman", serif;
+  line-height:1.35;
+}
+h1,h2,h3{ margin:0; line-height:1.1; color:var(--ink); }
+.display{ font-family:"Lacosta","Latienne Becker", Georgia, serif; letter-spacing:.2px; }
+.headline{ font-family:"Latienne Becker", Georgia, serif; font-weight:800; }
+.body{ font-family:"Latienne Becker", Georgia, serif; }
+.muted{ color:var(--muted); }
+
+.wrap{ max-width:1000px; margin:0 auto; padding:16px; }
+.row{ display:flex; gap:12px; flex-wrap:wrap; }
+.spread{ justify-content:space-between; }
+.center{ align-items:center; }
+.nomargin{ margin:0; }
+.mb-6{ margin-bottom:6px; }
+.mt-6{ margin-top:6px; }
+
+/* ======== HEADER ======== */
+header{
+  position:sticky; top:0; z-index:10;
+  background:linear-gradient(180deg,#fff,rgba(255,255,255,.78));
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand{
+  justify-content:space-between;
+  width:100%;
+}
+.nav-main{
+  display:flex; align-items:center; gap:12px;
+}
+.brand img{
+  height:54px;          /* controla a altura no header */
+  width:auto;           /* mantém proporção original */
+  object-fit:contain;   /* não recorta nem estica */
+  display:block;
+  background:transparent;
+  border:none;          /* remove qualquer borda */
+  border-radius:0;      /* remove o formato de círculo */
+}
+.brand h1{ font-size:22px; font-family:"Latienne Becker", Georgia, serif; }
+.brand small{ display:block; color:var(--muted); }
+
+/* ======== HERO ======== */
+.hero{ padding:28px 0; }
+.card{
+  background:var(--white);
+  border:none;
+  border-radius:0;
+  overflow:hidden;
+  box-shadow:0 1px 0 rgba(0,0,0,.08), 0 10px 18px rgba(0,0,0,.08);
+}
+.hero .card{
+  background:var(--panel);
+  color:var(--panel-ink);
+  padding:18px;
+  box-shadow:0 1px 0 rgba(0,0,0,.08), 0 10px 18px rgba(0,0,0,.08), -10px 10px 0 0 var(--panel-shadow);
+}
+.hero .card .btn{
+  background:var(--accent);
+  color:#3a2318;
+  border:2px solid rgba(0,0,0,.08);
+}
+
+/* ======== GRADE DE PRODUTOS ======== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:24px;
+}
+.card img{
+  width:100%; aspect-ratio:4/3; object-fit:cover; display:block;
+  background:#d7b39a;
+}
+.pad{ padding:18px 18px 20px; }
+
+.product-card{
+  background:var(--panel);
+  color:var(--panel-ink);
+  border-radius:0;
+  position:relative;
+  box-shadow:-10px 12px 0 0 var(--panel-shadow), 0 18px 28px rgba(0,0,0,.12);
+}
+.product-card .price,
+.product-card h3,
+.product-card p { color:var(--panel-ink); }
+
+.product-title{
+  font-family:"Latienne Becker", Georgia, serif;
+  font-weight:900;
+  font-size:28px;
+  line-height:1.1;
+}
+
+.price{
+  font-family:"Latienne Becker", Georgia, serif;
+  font-size:22px;
+  font-weight:900;
+}
+
+.pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius:999px;
+  background:var(--badge); color:#5b3a2b; font-size:12px;
+  border:1px solid rgba(0,0,0,.07);
+}
+
+/* ======== BOTÕES ======== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--accent);
+  color:#3a2318;
+  text-decoration:none; border:none; cursor:pointer;
+  padding:12px 16px; border-radius:10px; font-weight:800;
+  transition:transform .04s ease, filter .15s ease;
+}
+.btn:hover{ filter:brightness(.96); }
+.btn:active{ transform:translateY(1px); }
+.btn.secondary{
+  background:var(--panel);
+  color:var(--panel-ink);
+  border:2px solid var(--panel);
+}
+.btn.secondary:hover{
+  filter:brightness(1.1);
+}
+
+/* ======== RODAPÉ ======== */
+.footer{ padding:42px 0; color:var(--muted); font-size:14px; }
+.badge{
+  background:#fff; border:1px solid rgba(0,0,0,.08);
+  padding:6px 10px; border-radius:999px; font-size:12px;
+}
+
+/* ======== MODAL ======== */
+dialog{
+  border:none; border-radius:12px; max-width:880px; width:96vw; padding:0;
+  box-shadow:0 24px 60px rgba(0,0,0,.25);
+}
+dialog::backdrop{ background:rgba(0,0,0,.5); }
+.modal{ display:grid; grid-template-columns:1fr 1fr; }
+.modal .media{ background:#fff; }
+.modal img{ width:100%; height:100%; object-fit:cover; display:block; }
+.modal .info{ position:relative; padding:22px; }
+.close{ position:absolute; top:16px; right:16px; }
+.qty{ display:flex; align-items:center; gap:10px; margin:8px 0 12px; }
+.qty input{
+  width:90px; padding:8px 10px;
+  border:1px solid rgba(0,0,0,.15); border-radius:10px; font-size:16px;
+}
+.options{ display:grid; gap:8px; margin:10px 0; }
+.options select{
+  padding:10px; border:1px solid rgba(0,0,0,.15); border-radius:10px; font-size:15px; background:#fff;
+}
+.note{ margin-top:16px; font-size:12px; color:var(--muted); }
+
+/* Thumbs na galeria do modal */
+.thumbs{
+  display:flex; gap:8px; padding:10px; background:#fff; border-top:1px solid rgba(0,0,0,.06);
+}
+.thumbs img{
+  width:64px; height:64px; object-fit:cover; cursor:pointer;
+  border:1px solid rgba(0,0,0,.12); border-radius:6px; opacity:.85; transition:opacity .15s ease, transform .06s ease, box-shadow .15s ease;
+  box-shadow:0 1px 2px rgba(0,0,0,.06);
+}
+.thumbs img:hover{ opacity:1; transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.12); }
+.thumbs img.active{ opacity:1; outline:2px solid var(--accent); }
+
+/* Thumbs nos cards do catálogo */
+.card-thumbs{
+  display:flex; gap:6px; padding:8px 12px 12px;
+}
+.card-thumbs img{
+  width:44px; height:44px; object-fit:cover; cursor:pointer;
+  border:1px solid rgba(0,0,0,.12); border-radius:6px; opacity:.9;
+  transition:opacity .15s ease, transform .06s ease, box-shadow .15s ease;
+  box-shadow:0 1px 2px rgba(0,0,0,.06);
+}
+.card-thumbs img:hover{ opacity:1; transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.12); }
+
+/* ======== RESPONSIVO ======== */
+@media (max-width:780px){
+  .modal{ grid-template-columns:1fr; }
+  .product-title{ font-size:24px; }
+}
+
+/* Navegação por setas no modal */
+.modal .media{
+  position:relative;
+}
+.modal .nav-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.4);
+  color:#fff;
+  border:none;
+  font-size:28px;
+  line-height:1;
+  padding:8px 12px;
+  cursor:pointer;
+  z-index:2;
+  border-radius:4px;
+  transition:background .2s ease;
+}
+.modal .nav-arrow:hover{
+  background:rgba(0,0,0,0.6);
+}
+.modal .nav-arrow.prev{
+  left:8px;
+}
+.modal .nav-arrow.next{
+  right:8px;
+}
