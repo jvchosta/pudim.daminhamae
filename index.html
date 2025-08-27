@@ -22,7 +22,8 @@
           <small>Lisinho, cremoso e feito com amor — Canoas/RS</small>
         </div>
       </div>
-      <nav style="display:flex; align-items:center; gap:12px;">
+      <button class="menu-btn" id="menu-btn" aria-label="Abrir menu">☰</button>
+      <nav class="nav-main">
         <a href="#" class="btn secondary">Página 1</a>
         <a href="#" class="btn secondary">Página 2</a>
         <a href="#" class="btn secondary">Página 3</a>
@@ -204,6 +205,20 @@
     const mThumbs = document.getElementById('mThumbs');
     const prevImgBtn = document.getElementById('prevImg');
     const nextImgBtn = document.getElementById('nextImg');
+    const headerEl = document.querySelector('header');
+    const menuBtn = document.getElementById('menu-btn');
+    if(menuBtn){
+      menuBtn.addEventListener('click', ()=>{
+        headerEl.classList.toggle('open');
+      });
+      // Fecha o menu ao clicar/tocar fora do header
+      document.addEventListener('click', (e)=>{
+        if(!headerEl.contains(e.target) && headerEl.classList.contains('open')){
+          headerEl.classList.remove('open');
+        }
+      });
+    }
+
     let modalImgs = [];
     let currentImgIndex = 0;
 
@@ -321,6 +336,9 @@
       };
 
       dlg.showModal();
+      dlg.addEventListener('click', (e)=>{
+        if(e.target === dlg){ closeModal(); }
+      }, { once:true });
     }
 
     function closeModal(){ dlg.close(); }

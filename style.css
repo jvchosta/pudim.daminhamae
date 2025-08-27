@@ -70,56 +70,112 @@ header{
   justify-content:space-between;
   width:100%;
 }
-.nav-main{
-  display:flex; align-items:center; gap:12px;
-}
+.nav-main{ display:flex; align-items:center; gap:12px; }
 .brand img{
-  height:54px;          /* controla a altura no header */
-  width:auto;           /* mantém proporção original */
-  object-fit:contain;   /* não recorta nem estica */
-  display:block;
-  background:transparent;
-  border:none;          /* remove qualquer borda */
-  border-radius:0;      /* remove o formato de círculo */
+  height:54px; width:auto; object-fit:contain; display:block;
+  background:transparent; border:none; border-radius:0;
 }
 .brand h1{ font-size:22px; font-family:"Rouge Script", cursive; font-weight:400; }
-.brand small{ display:block; color:var(--muted); font-family: "Zain", sans-serif; font-size: 18px; }
+.brand small{ display:block; color:var(--muted); font-family:"Zain", sans-serif; font-size:18px; }
+
+/* Botão hamburguer escondido no desktop */
+.menu-btn{ display:none; }
+
+/* Centralização da área de herói em telas pequenas e compatível com desktop */
+.hero .card .row > div:first-child{ text-align:left; }
+@media (max-width:780px){
+  .hero .card .row > div:first-child{ text-align:center; width:100%; }
+
+  /* HEADER ocupa 100% e mais fino no mobile */
+  header .wrap{ max-width:100%; padding-left:12px; padding-right:12px; }
+  .brand{ gap:8px; }
+  .brand img{ height:42px; }
+  .brand small{ font-size:16px; text-align:center; display:block; }
+
+  /* Menu hamburguer */
+  .menu-btn{
+    display:inline-flex;
+    align-items:center; justify-content:center;
+    width:40px; height:40px;
+    font-size:22px; line-height:1; border:none; border-radius:8px;
+    background:transparent; color:var(--ink);
+  }
+  /* Esconde navegação por padrão no mobile (usa .nav-main para ganhar da regra base) */
+  header .nav-main{
+    display:none !important;
+    position:absolute; right:0; top:100%; left:auto;
+    background:rgba(255,255,255,0.98);
+    box-shadow:0 12px 24px rgba(0,0,0,.12);
+    padding:10px 12px; gap:0;
+    min-width:60vw;
+  }
+  /* Quando abrir, mostra nav em coluna alinhada à direita */
+  header.open .nav-main{ display:flex !important; flex-direction:column; align-items:flex-end; }
+
+  /* Estilo minimalista dos itens do menu no mobile */
+  header.open .nav-main .btn{
+    background:transparent; border:none; border-radius:0;
+    padding:12px 4px; width:100%; text-align:right;
+    color:var(--ink); font-weight:700; font-size:16px;
+  }
+  header.open .nav-main .btn + .btn{ border-top:1px solid var(--panel-shadow); }
+
+  header.open .menu-btn{ background:rgba(0,0,0,0.06); }
+
+  /* Centralizar elementos no mobile */
+  .row{ justify-content:center; }
+  .row.spread{ justify-content:center; }
+  .hero .row.spread{ text-align:center; }
+  .product-card .row.spread{ justify-content:space-between; }
+
+  /* Modal em coluna e thumbs acima do título (com espaçamento) */
+  .modal{ grid-template-columns:1fr; }
+  .modal .media{ order:0; }
+  .modal .info{ order:1; }
+  .thumbs{ position:static; margin:8px 0 12px; }
+
+  /* Botão fechar como “X” no topo direito */
+  .close{
+    position:absolute; top:8px; right:8px;
+    width:36px; height:36px; padding:0;
+    border:none; background:transparent;
+    color:transparent; /* esconde texto "Fechar" */
+  }
+  .close::after{
+    content:"×";
+    color:#333; font-size:26px; line-height:36px;
+    display:block; text-align:center;
+  }
+
+  /* Ajustes tipográficos no mobile */
+  .product-title{ font-size:24px; }
+  .price{ font-size:26px; }
+
+  /* Garantir que header fique por cima do menu aberto */
+  header{ position:sticky; z-index:20; }
+}
 
 /* ======== HERO ======== */
 .hero{ padding:28px 0; }
 
-/* ======== HERO HEADING "Catálogo" ======== */
+/* HERO: título e texto em branco */
 .hero .display,
-.hero h1 {
-  color: #ffffff;
-}
-
-/* ======== HERO SUBHEADING/PARAGRAPH ======== */
+.hero h1 { color:#ffffff; }
 .hero .subheading,
 .hero p.subheading,
 .hero .card p,
-.hero p {
-  color: #ffffff;
-  font-size: 1.1em;
-}
+.hero p { color:#ffffff; font-size:1.1em; }
+
 .card{
   background:var(--white);
-  border:none;
-  border-radius:0;
-  overflow:hidden;
+  border:none; border-radius:0; overflow:hidden;
   box-shadow:0 1px 0 rgba(0,0,0,.08), 0 10px 18px rgba(0,0,0,.08);
 }
 .hero .card{
-  background:var(--panel);
-  color:var(--panel-ink);
-  padding:18px;
+  background:var(--panel); color:var(--panel-ink); padding:18px;
   box-shadow:0 1px 0 rgba(0,0,0,.08), 0 10px 18px rgba(0,0,0,.08), -10px 10px 0 0 var(--panel-shadow);
 }
-.hero .card .btn{
-  background:var(--accent);
-  color:#3a2318;
-  border:2px solid rgba(0,0,0,.08);
-}
+.hero .card .btn{ background:var(--accent); color:#3a2318; border:2px solid rgba(0,0,0,.08); }
 
 /* ======== GRADE DE PRODUTOS ======== */
 .grid{
@@ -134,10 +190,8 @@ header{
 .pad{ padding:18px 18px 20px; }
 
 .product-card{
-  background:var(--panel);
-  color:var(--panel-ink);
-  border-radius:0;
-  position:relative;
+  background:var(--panel); color:var(--panel-ink);
+  border-radius:0; position:relative;
   box-shadow:-10px 12px 0 0 var(--panel-shadow), 0 18px 28px rgba(0,0,0,.12);
 }
 .product-card .price,
@@ -145,17 +199,10 @@ header{
 .product-card p { color:var(--panel-ink); }
 
 .product-title{
-  font-family:"Rouge Script", cursive;
-  font-weight:700;
-  font-size: clamp(28px, 3.6vw, 34px);
-  line-height:1.1;
+  font-family:"Rouge Script", cursive; font-weight:700;
+  font-size:clamp(28px, 3.6vw, 34px); line-height:1.1;
 }
-
-.price{
-  font-family:"Zain", sans-serif;
-  font-size:28px;
-  font-weight:900;
-}
+.price{ font-family:"Zain", sans-serif; font-size:28px; font-weight:900; }
 
 .pill{
   display:inline-flex; align-items:center; gap:8px;
@@ -167,31 +214,20 @@ header{
 /* ======== BOTÕES ======== */
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  background:var(--accent);
-  color:#3a2318;
+  background:var(--accent); color:#3a2318;
   text-decoration:none; border:none; cursor:pointer;
   padding:12px 16px; border-radius:10px; font-weight:800;
-  font-family: "Zain", sans-serif;
-  font-size: 17px;
+  font-family:"Zain", sans-serif; font-size:17px;
   transition:transform .04s ease, filter .15s ease;
 }
 .btn:hover{ filter:brightness(.96); }
 .btn:active{ transform:translateY(1px); }
-.btn.secondary{
-  background:var(--panel);
-  color:var(--panel-ink);
-  border:2px solid var(--panel);
-}
-.btn.secondary:hover{
-  filter:brightness(1.1);
-}
+.btn.secondary{ background:var(--panel); color:var(--panel-ink); border:2px solid var(--panel); }
+.btn.secondary:hover{ filter:brightness(1.1); }
 
 /* ======== RODAPÉ ======== */
 .footer{ padding:42px 0; color:var(--muted); font-size:14px; }
-.badge{
-  background:#fff; border:1px solid rgba(0,0,0,.08);
-  padding:6px 10px; border-radius:999px; font-size:12px;
-}
+.badge{ background:#fff; border:1px solid rgba(0,0,0,.08); padding:6px 10px; border-radius:999px; font-size:12px; }
 
 /* ======== MODAL ======== */
 dialog{
@@ -221,55 +257,44 @@ dialog::backdrop{ background:rgba(0,0,0,.5); }
 }
 .thumbs img{
   width:64px; height:64px; object-fit:cover; cursor:pointer;
-  border:1px solid rgba(0,0,0,.12); border-radius:6px; opacity:.85; transition:opacity .15s ease, transform .06s ease, box-shadow .15s ease;
+  border:1px solid rgba(0,0,0,.12); border-radius:6px; opacity:.85;
+  transition:opacity .15s ease, transform .06s ease, box-shadow .15s ease;
   box-shadow:0 1px 2px rgba(0,0,0,.06);
 }
 .thumbs img:hover{ opacity:1; transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.12); }
 .thumbs img.active{ opacity:1; outline:2px solid var(--accent); }
 
-/* Thumbs nos cards do catálogo */
-.card-thumbs{
-  display:flex; gap:6px; padding:8px 12px 12px;
-}
-.card-thumbs img{
-  width:44px; height:44px; object-fit:cover; cursor:pointer;
-  border:1px solid rgba(0,0,0,.12); border-radius:6px; opacity:.9;
-  transition:opacity .15s ease, transform .06s ease, box-shadow .15s ease;
-  box-shadow:0 1px 2px rgba(0,0,0,.06);
-}
-.card-thumbs img:hover{ opacity:1; transform:translateY(-1px); box-shadow:0 4px 10px rgba(0,0,0,.12); }
-
 /* ======== RESPONSIVO ======== */
+
 @media (max-width:780px){
+  /* Volta o layout do modal: uma coluna, thumbs acima do título e botão fechar como X */
   .modal{ grid-template-columns:1fr; }
-  .product-title{ font-size:24px; }
+  .modal .media{ order:0; }
+  .modal .info{ order:1; }
+  .thumbs{ position:static; margin:8px 0 12px; }
+
+  /* Fechar no topo direito como “X” */
+  .close{
+    position:absolute; top:8px; right:8px;
+    width:36px; height:36px; padding:0;
+    border:none; background:transparent;
+    color:transparent; /* esconde texto */
+  }
+  .close::after{
+    content:"×";
+    color:#333; font-size:26px; line-height:36px;
+    display:block; text-align:center;
+  }
 }
 
 /* Navegação por setas no modal */
-.modal .media{
-  position:relative;
-}
+.modal .media{ position:relative; }
 .modal .nav-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.4);
-  color:#fff;
-  border:none;
-  font-size:28px;
-  line-height:1;
-  padding:8px 12px;
-  cursor:pointer;
-  z-index:2;
-  border-radius:4px;
-  transition:background .2s ease;
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:rgba(0,0,0,0.4); color:#fff; border:none;
+  font-size:28px; line-height:1; padding:8px 12px; cursor:pointer;
+  z-index:2; border-radius:4px; transition:background .2s ease;
 }
-.modal .nav-arrow:hover{
-  background:rgba(0,0,0,0.6);
-}
-.modal .nav-arrow.prev{
-  left:8px;
-}
-.modal .nav-arrow.next{
-  right:8px;
-}
+.modal .nav-arrow:hover{ background:rgba(0,0,0,0.6); }
+.modal .nav-arrow.prev{ left:8px; }
+.modal .nav-arrow.next{ right:8px; }
